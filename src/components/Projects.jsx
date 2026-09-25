@@ -12,8 +12,9 @@ const Projects = () => {
       img: learnify,
       imageName: "learnify",
       title: "Learnify - Courses Platform",
-      type: "Learning platform",
-      description: "A course-focused interface designed to make exploring learning content feel simple and focused.",
+      type: "Learning platform concept",
+      description:
+        "A course-platform concept focused on course discovery and category browsing. Student and success figures in the preview are illustrative demo content.",
       stack: ["React", "Tailwind CSS"],
       url: "https://learnify-pied-rho.vercel.app/",
     },
@@ -22,8 +23,9 @@ const Projects = () => {
       img: kaira,
       imageName: "kaira",
       title: "Kaira - Shopping",
-      type: "E-commerce experience",
-      description: "A responsive storefront concept with a product-first layout and polished browsing experience.",
+      type: "Storefront concept",
+      description:
+        "A responsive storefront concept with desktop and mobile screens for browsing products, a wishlist, and a cart.",
       stack: ["HTML", "CSS", "JavaScript"],
       url: "https://ahmed-osama99.github.io/kaira-ecommerce/",
     },
@@ -32,8 +34,9 @@ const Projects = () => {
       img: dashstack,
       imageName: "dashstack",
       title: "DashStack - Monitor Your Business",
-      type: "Dashboard UI",
-      description: "A data-oriented dashboard interface focused on presenting business information clearly.",
+      type: "Dashboard concept",
+      description:
+        "A business dashboard concept with inventory, order-list, and chart views using sample data.",
       stack: ["HTML", "CSS", "JavaScript"],
       url: "https://ahmed-osama99.github.io/DashStack/",
     },
@@ -41,7 +44,9 @@ const Projects = () => {
 
   return (
     <section id="projects" className="container scroll-mt-6 py-16 md:py-24">
-      <p className="text-center text-sm font-semibold uppercase tracking-[0.18em] text-main">Selected work</p>
+      <p className="text-center text-sm font-semibold uppercase tracking-[0.18em] text-main">
+        Selected work
+      </p>
       <h2 className="mb-4 mt-3 text-center text-3xl font-bold tracking-tight text-headline md:text-4xl">
         Featured Projects
       </h2>
@@ -80,7 +85,8 @@ const Projects = () => {
                 {project.stack.map((item) => <li key={item} className="rounded-full bg-main/8 px-2.5 py-1 text-xs font-medium text-main-tag">{item}</li>)}
               </ul>
               <span className="mt-6 flex items-center gap-2 text-sm font-semibold text-headline transition-colors group-hover:text-main">
-                View live project <FontAwesomeIcon aria-hidden="true" icon={faArrowUpRightFromSquare} />
+                View live project{" "}
+                <FontAwesomeIcon aria-hidden="true" icon={faArrowUpRightFromSquare} />
               </span>
             </div>
           </a>

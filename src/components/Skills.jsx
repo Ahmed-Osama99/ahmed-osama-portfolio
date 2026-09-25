@@ -16,7 +16,6 @@ import npmSVG from "../assets/npm.svg";
 const Marquee = MarqueeImport.default || MarqueeImport;
 
 const Skills = () => {
-  // Array mapping keeps the JSX clean and makes adding new skills effortless
   const techStack = [
     { src: htmlSVG, name: "HTML" },
     { src: cssSVG, name: "CSS" },
@@ -31,20 +30,22 @@ const Skills = () => {
     { src: figmaSVG, name: "Figma" },
     { src: npmSVG, name: "NPM" },
   ];
-  // Stop skills Marquee if there prefers-reduced-motion
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(() =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
 
   useEffect(() => {
     const motionMediaQuery = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     );
-    const updatePrefer = () => setReducedMotion(motionMediaQuery.matches);
+    const updatePreference = () => setReducedMotion(motionMediaQuery.matches);
 
-    updatePrefer();
+    updatePreference();
 
-    motionMediaQuery.addEventListener("change", updatePrefer);
+    motionMediaQuery.addEventListener("change", updatePreference);
 
-    return () => motionMediaQuery.removeEventListener("change", updatePrefer);
+    return () => motionMediaQuery.removeEventListener("change", updatePreference);
   }, []);
 
   return (
@@ -57,12 +58,10 @@ const Skills = () => {
       <div className="text-xl md:text-2xl font-bold mx-auto w-fit text-headline text-center leading-relaxed">
         <p>
           Make it
-          {/* Increased text size slightly and added margin for breathing room */}
           <span className="text-main font-caveat text-3xl md:text-4xl inline-block mx-2">
             beautiful
           </span>
           , Make it
-          {/* Fixed invalid nested <p> tag by changing to <span> */}
           <span className="text-main font-caveat text-3xl md:text-4xl inline-block mx-2">
             fast.
           </span>
@@ -90,13 +89,12 @@ const Skills = () => {
           pauseOnClick
           className="py-4 overflow-hidden"
         >
-          {techStack.map((skill, index) => (
+          {techStack.map((skill) => (
             <img
-              key={index}
+              key={skill.name}
               src={skill.src}
               alt={skill.name}
               title={skill.name}
-              /* Grayscale default, color and scale on hover */
               className="w-16 h-16 mx-8 grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110 cursor-pointer"
             />
           ))}

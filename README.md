@@ -1,6 +1,6 @@
 # Ahmed Osama — Portfolio
 
-A responsive portfolio website for Ahmed Osama, a junior frontend developer. It presents selected projects, the tools used to build them, and ways to get in touch.
+A responsive portfolio for Ahmed Osama, featuring selected frontend projects, skills, and an Upwork contact link.
 
 ## Built with
 
@@ -22,18 +22,10 @@ Create a production build with:
 npm run build
 ```
 
-## Responsive images
+The prebuild step generates AVIF and WebP image variants in `public/images`; Vercel runs it through the configured build command.
 
-Project and profile images are served through a `<picture>` element with AVIF, WebP, and JPEG fallback sources. The `images` script generates the AVIF/WebP variants at appropriate breakpoints; it also runs automatically before production builds.
+## Deploy to Vercel
 
-```bash
-npm run images
-```
+Import `Ahmed-Osama99/ahmed-osama-portfolio` as a Vercel project. The repository's `vercel.json` sets `npm run build` and `dist` as the output directory. Keep the project root set to the repository root. Once imported, pushes to the production branch can trigger new deployments.
 
-When adding a new portfolio image, add it to the `images` array in `scripts/generate-images.mjs`, generate variants, then use `ResponsiveImage` in the relevant component.
-
-## Before deployment
-
-- Replace the site URL and add Open Graph metadata once a production domain is available.
-- Confirm that the live project, social, email, and WhatsApp links are current.
-- Add a résumé download link if you want recruiters to be able to save your CV.
+After Vercel assigns the production URL, add it as the canonical URL and set absolute `og:url` and social preview image URLs in `index.html` if you want link previews.
