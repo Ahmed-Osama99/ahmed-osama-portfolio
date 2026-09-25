@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --color-main: #5e3bee;
+  --color-main-tag: #3e2994;
+  --color-paragraph: #595959;
+  --color-headline: #1e1e1e;
+  --font-Instrument: "Instrument Sans", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+@layer base {
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--color-main);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+}
+.container {
+  @apply mx-auto px-4 md:px-10 max-w-6xl;
+}
+
+.font-caveat {
+  font-family: "Caveat", cursive;
+}
+.ao-name {
+  width: 120px;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typeWriter 1s 1s steps(12) both;
+  -webkit-animation: typeWriter 1s 1s steps(12) both;
+}
+/* HERO SECTION SPECIAL BACKGROUND */
+.special-bg {
+  background-color: #ffffff;
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    #ffffff 40%,
+    color-mix(in srgb, var(--color-main) 8%, transparent) 80%,
+    color-mix(in srgb, var(--color-main) 2%, transparent) 100%
+  );
+}
+/* @media (max-width: 600px) {
+  .special-bg {
+    background: radial-gradient(
+      circle at top,
+      white 50%,
+      var(--color-main-tag) 75%,
+      black 95%
+    );
+  }
+}
+@media (max-width: 750px) {
+  .special-bg {
+    background: radial-gradient(
+      circle at 50% -10%,
+      white 50%,
+      var(--color-main-tag) 75%,
+      black 95%
+    );
+  }
+}
+@media (max-width: 990px) {
+  .special-bg {
+    background: radial-gradient(
+      circle at 50% -20%,
+      white 60%,
+      var(--color-main-tag) 85%,
+      black 95%
+    );
+  }
+}
+@media (min-width: 991px) {
+  .special-bg {
+    background: radial-gradient(
+      circle at 50% -50%,
+      transparent 70%,
+      color-mix(in srgb, var(--color-main-tag) 30%, transparent) 75%,
+      var(--color-main-tag) 83%,
+      black
+    );
+  }
+} */
+ /* HERO SECTION - Fade Rise In */
+ .hero-enter-1{
+  animation: fadeRiseIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+ }
+ .hero-enter-2{
+  animation: fadeRiseIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+ }
+ .hero-enter-3{
+  animation: fadeRiseIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+ }
+ @media (prefers-reduced-motion: reduce) {
+  .hero-enter-1,
+  .hero-enter-2,
+  .hero-enter-3 {
+    animation: none;
+  }}
+.special-hover {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: -1px ;
+    background-color: var(--color-main);
+    transition: width 0.3s;
+  }
+}
+.special-hover:hover::after {
+  width: 100%;
+}
+/* Animation */
+@keyframes typeWriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 120px;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-right-color: var(--color-main);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+@keyframes fadeRiseIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
